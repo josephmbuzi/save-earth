@@ -1,98 +1,102 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { ScrollView, Text, View } from "react-native";
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
-
-export default function HomeScreen() {
+function Avatar() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
-
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View className="bg-green-600 w-14 h-14 rounded-full items-center justify-center">
+      <Text className="text-white font-bold">JM</Text>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+export default function Home() {
+  return (
+    <View className="flex-1 bg-gray-50">
+      {/* Header */}
+      <View className=" flex flex-row justify-between items-center pt-16 pb-6 px-6">
+        <View className="flex flex-row gap-2 items-start">
+            <Avatar />
+            <View className="flex gap-1 items-start">
+                <Text className="text-gray-800 text-md font-medium">Hi, Joseph Mbuzi</Text>
+                <View className="flex flex-row items-center gap-1 bg-green-200 px-3 py-0.5 rounded-full">
+                    <FontAwesome name="check-circle" size={14} color="#10b981" />
+                    <Text className="text-green-700 text-md font-medium">Verified</Text>
+                </View>
+            
+            </View>
+        </View>
+        <Ionicons name="notifications-outline" size={26} color="#4b5563" />
+      </View>
+
+      {/* Content */}
+      <ScrollView className="flex-1">
+        {/* Stats Card */}
+        <View className="mx-6 mt-6 bg-white rounded-2xl p-6 shadow-sm">
+          <View className="flex-row items-center justify-between">
+            <View>
+              <Text className="text-gray-500 text-sm">Total carbon units</Text>
+              <Text className="text-4xl font-bold text-gray-900 mt-1">80</Text>
+              <Text className="text-green-500 text-sm mt-1">
+                +2 this month
+              </Text>
+            </View>
+            <View className="bg-green-100 w-16 h-16 rounded-full items-center justify-center">
+              <Ionicons name="leaf" size={32} color="#10b981" />
+            </View>
+          </View>
+        </View>
+
+        {/* Recent Activity */}
+        <View className="mx-6 mt-6 mb-6">
+          <Text className="text-lg font-bold text-gray-900 mb-4">
+            Recent Activity
+          </Text>
+
+          {/* Activity Item 1 */}
+          <View className="bg-white rounded-xl p-4 mb-3 shadow-sm">
+            <View className="flex-row items-center justify-between">
+              <View className="flex-1">
+                <View className="flex-row items-center">
+                  <Ionicons name="leaf-outline" size={20} color="#10b981" />
+                  <Text className="text-gray-900 font-semibold ml-2">
+                    Nature-based
+                  </Text>
+                </View>
+                <Text className="text-gray-500 text-sm mt-1">
+                  1 Feb 2025, 08:47 AM
+                </Text>
+              </View>
+              <View className="bg-green-100 px-3 py-1 rounded-full">
+                <Text className="text-green-600 text-xs font-semibold">
+                  Approved
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          {/* Activity Item 2 */}
+          <View className="bg-white rounded-xl p-4 mb-3 shadow-sm">
+            <View className="flex-row items-center justify-between">
+              <View className="flex-1">
+                <View className="flex-row items-center">
+                  <Ionicons name="flash-outline" size={20} color="#f59e0b" />
+                  <Text className="text-gray-900 font-semibold ml-2">
+                    Renewable Energy
+                  </Text>
+                </View>
+                <Text className="text-gray-500 text-sm mt-1">
+                  1 Feb 2025, 08:47 AM
+                </Text>
+              </View>
+              <View className="bg-amber-100 px-3 py-1 rounded-full">
+                <Text className="text-amber-600 text-xs font-semibold">
+                  Pending
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </View>
+  );
+}
