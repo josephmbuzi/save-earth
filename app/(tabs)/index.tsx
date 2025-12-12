@@ -17,7 +17,7 @@ export default function Home() {
         <View className="flex flex-row gap-2 items-start">
             <Avatar />
             <View className="flex gap-1 items-start">
-                <Text className="text-gray-800 text-md font-medium">Hi, Joseph Mbuzi</Text>
+                <Text className="text-gray-800 text-md font-manrope-bold">Hi, Joseph Mbuzi</Text>
                 <View className="flex flex-row items-center gap-1 bg-green-200 px-3 py-0.5 rounded-full">
                     <FontAwesome name="check-circle" size={14} color="#10b981" />
                     <Text className="text-green-700 text-md font-medium">Verified</Text>
@@ -48,7 +48,7 @@ export default function Home() {
 
         {/* Recent Activity */}
         <View className="mx-6 mt-6 mb-6">
-          <Text className="text-lg font-bold text-gray-900 mb-4">
+          <Text className="text-lg font-manrope-semibold text-gray-900 mb-4">
             Recent Activity
           </Text>
 
